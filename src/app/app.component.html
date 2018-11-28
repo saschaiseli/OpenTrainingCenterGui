@@ -1,7 +1,10 @@
-<div class="ui four item tabs menu">
-  <a routerLink="home"  routerLinkActive="active" class="item">Home</a>
-  <a routerLink="trainings" routerLinkActive="active" class="item">Trainings</a>
-  <a routerLink="calculations" routerLinkActive="active" class="item">Berechnungen</a>
-  <a routerLink="statistics" routerLinkActive="active" class="item">Statistik</a>
+<div class="ui left vertical visible thin sidebar labeled icon menu">
+ <a routerLink="home"  routerLinkActive="active" class="item"> <i class="home icon"></i>Home</a>
+ <a routerLink="trainings" routerLinkActive="active" class="item">Trainings</a>
+ <a routerLink="calculations" routerLinkActive="active" class="item">Berechnungen</a>
+ <a routerLink="statistics" routerLinkActive="active" class="item">Statistik</a>
+</div>
+<div class="pusher">
+    <router-outlet></router-outlet>
 </div>
 
