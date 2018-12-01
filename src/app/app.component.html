@@ -1,10 +1,33 @@
-<div class="ui left vertical visible thin sidebar labeled icon menu">
- <a routerLink="home"  routerLinkActive="active" class="item"> <i class="home icon"></i>Home</a>
- <a routerLink="trainings" routerLinkActive="active" class="item">Trainings</a>
- <a routerLink="calculations" routerLinkActive="active" class="item">Berechnungen</a>
- <a routerLink="statistics" routerLinkActive="active" class="item">Statistik</a>
-</div>
-<div class="pusher">
-    <router-outlet></router-outlet>
-</div>
+<nav class="navbar navbar-expand-lg navbar-light">
+  <a class="navbar-brand" href="#">OpenTrainingCenter</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+    aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
 
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item">
+        <a routerLink="home" routerLinkActive="active" class="nav-link">Home</a>
+      </li>
+      <li class="nav-item">
+        <a routerLink="trainings" routerLinkActive="active" class="nav-link">Trainings</a>
+      </li>
+      <li class="nav-item">
+        <a routerLink="calculations" routerLinkActive="active" class="nav-link">Berechnungen</a>
+      </li>
+      <li class="nav-item">
+        <a routerLink="statistics" routerLinkActive="active" class="nav-link">Statistik</a>
+      </li>
+    </ul>
+    <form class="form-inline my-2 my-lg-0">
+      <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+      <button class="btn btn-outline-success my-2 my-sm-0 mr-5" type="submit">Search</button>
+    </form>
+
+    <button type="button" class="btn btn-primary mx-2" data-toggle="modal" data-target="#exampleModal">Add</button>
+
+  </div>
+</nav>
+
+<router-outlet></router-outlet>

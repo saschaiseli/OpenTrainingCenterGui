@@ -1,3 +1,4 @@
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
@@ -14,6 +15,7 @@ import { SimpleTrainingServiceService } from './shared/service/simple-training-s
     DashboardComponent
   ],
   imports: [
+    NgbModule,
     RouterModule,
     BrowserModule,
     HttpClientModule,

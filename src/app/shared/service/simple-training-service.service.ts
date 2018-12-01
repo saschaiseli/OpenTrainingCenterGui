@@ -1,6 +1,7 @@
+
+import {throwError as observableThrowError,  Observable } from 'rxjs';
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
 import { SimpleTraining } from '../../model/simple-training';
 import { SimpleTrainingRaw } from '../../shared/simple-training-raw';
 import { SimpleTrainingFactory } from '../../shared/simple-training-factory';
@@ -28,6 +29,6 @@ export class SimpleTrainingServiceService {
   }
 
   private errorHandler(error: Error | any): Observable<any> {
-    return Observable.throw(error);
+    return observableThrowError(error);
   }
 }

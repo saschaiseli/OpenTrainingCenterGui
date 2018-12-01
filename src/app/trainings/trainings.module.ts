@@ -3,7 +3,6 @@ import { CommonModule } from '@angular/common';
 
 import { TrainingsRoutingModule } from './trainings-routing.module';
 import { TrainingsComponent } from './trainings-list/trainings.component';
-import { TrainingItemComponent } from './training-item/training-item.component';
 import { TrainingsListItemComponent } from './trainings-list-item/trainings-list-item.component';
 
 @NgModule({
@@ -11,6 +10,6 @@ import { TrainingsListItemComponent } from './trainings-list-item/trainings-list
     CommonModule,
     TrainingsRoutingModule
   ],
-  declarations: [TrainingsComponent, TrainingItemComponent, TrainingsListItemComponent]
+  declarations: [TrainingsComponent, TrainingsListItemComponent]
 })
 export class TrainingsModule { }
