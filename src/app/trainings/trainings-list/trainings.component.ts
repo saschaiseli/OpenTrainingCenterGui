@@ -1,4 +1,7 @@
+import { SimpleTrainingServiceService } from './../../shared/service/simple-training-service.service';
 import { Component, OnInit } from '@angular/core';
+import { Observable } from 'rxjs';
+import { SimpleTraining } from 'src/app/model/simple-training';
 
 @Component({
   selector: 'otc-trainings',
@@ -7,9 +10,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TrainingsComponent implements OnInit {
 
-  constructor() { }
+  trainings$: Observable<SimpleTraining[]>;
+  constructor(private service: SimpleTrainingServiceService) { }
 
   ngOnInit() {
+    this.trainings$ = this.service.getAllByAthlete('49952');
   }
 
 }

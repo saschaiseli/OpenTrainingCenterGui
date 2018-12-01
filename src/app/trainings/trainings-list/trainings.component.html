@@ -1,3 +1,25 @@
-<p>
-  trainings works!
-</p>
+<div class="ui middle aligned selection divided list" *ngIf="trainings$ | async as trainings; else loading">
+  <table class="ui celled table">
+    <thead>
+      <tr>
+        <th>Datum</th>
+        <th>Dauer</th>
+        <th>Länge</th>
+        <th>Herz [avg]</th>
+        <th>Herz [max]</th>
+        <th>Pace [min/km]</th>
+        <th>TrainingEffect</th>
+        <th>anaerob TrainingEffect</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr class="otc-trainings-list-item" *ngFor="let b of trainings" [simpletraining]="b"></tr>
+    </tbody>
+  </table>
+</div>
+
+<ng-template #loading>
+  <div class="ui active dimmer">
+    <div class="ui large text loader">Daten werden geladen...</div>
+  </div>
+</ng-template>

@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { AppRoutingModule } from './app-routing.module';
 import { RouterModule } from '@angular/router';
+import { SimpleTrainingServiceService } from './shared/service/simple-training-service.service';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,7 @@ import { RouterModule } from '@angular/router';
     HttpClientModule,
     AppRoutingModule
   ],
-  providers: [],
+  providers: [SimpleTrainingServiceService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
