@@ -2,7 +2,7 @@ export class SimpleTraining {
 
   constructor(public id: number,
     public timeInSeconds: number,
-    public distanceInMeter: number,
+    public distanceInKm: number,
     public avgHeartBeat: number,
     public maxHeartBeat: number,
     public pace: string,

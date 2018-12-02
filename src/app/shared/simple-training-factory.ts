@@ -6,7 +6,7 @@ export class SimpleTrainingFactory {
     return new SimpleTraining(
       rawTraining.id,
       rawTraining.timeInSeconds,
-      rawTraining.distanceInMeter,
+      rawTraining.distanceInKm,
       rawTraining.avgHeartBeat,
       rawTraining.maxHeartBeat,
       rawTraining.pace,

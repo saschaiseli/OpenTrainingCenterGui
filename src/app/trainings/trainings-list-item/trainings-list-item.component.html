@@ -1,7 +1,7 @@
 
-  <td>{{ simpletraining.id | date: 'dd.MM.yyyy'}}</td>
-  <td>{{ simpletraining.timeInSeconds }}</td>
-  <td>{{ simpletraining.distanceInMeter }}</td>
+  <td>{{ simpletraining.id | date: 'h:mm:ss a'}}</td>
+  <td>{{ simpletraining.timeInSeconds * 1000 | date: 'h:mm:ss' : 'UTC'}}</td>
+  <td>{{ simpletraining.distanceInKm }}</td>
   <td>{{ simpletraining.avgHeartBeat }}</td>
   <td>{{ simpletraining.maxHeartBeat }}</td>
   <td>{{ simpletraining.pace }}</td>

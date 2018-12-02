@@ -17,4 +17,11 @@ export class TrainingsComponent implements OnInit {
     this.trainings$ = this.service.getAllByAthlete('49952');
   }
 
+  getTotalDistance(trainings: SimpleTraining[]): string {
+    let total = 0;
+    if (trainings != null && trainings.length > 0) {
+      trainings.forEach(x => total += x.distanceInKm);
+    }
+    return '' + total;
+  }
 }
