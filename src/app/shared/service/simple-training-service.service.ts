@@ -1,3 +1,4 @@
+import { Config } from './../config';
 
 import {throwError as observableThrowError,  Observable } from 'rxjs';
 import { Injectable } from '@angular/core';
@@ -12,13 +13,11 @@ import { retry, map, catchError } from 'rxjs/operators';
 })
 export class SimpleTrainingServiceService {
 
-  private api = 'http://127.0.0.1:8282/trainingservice/api';
-
   constructor(private http: HttpClient) { }
 
   getAllByAthlete(athleteId: string): Observable<Array<SimpleTraining>> {
     return this.http
-      .get<SimpleTrainingRaw[]>(`${this.api}/trainings/${athleteId}`)
+      .get<SimpleTrainingRaw[]>(`${Config.api}/trainings/${athleteId}`)
       .pipe(
         retry(3),
         map(rawTrainings => rawTrainings
