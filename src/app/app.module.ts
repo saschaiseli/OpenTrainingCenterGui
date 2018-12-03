@@ -12,13 +12,15 @@ import { FileUploadModalComponent } from './upload/file-upload-modal/file-upload
 import { FileSelectDirective } from 'ng2-file-upload';
 import { AlertComponentComponent } from './shared/alert-component/alert-component.component';
 import { ShowErrorService } from './shared/service/show-error.service';
+import { FileSizePipe } from './shared/pipe/file-size.pipe';
 
 @NgModule({
   declarations: [
     AppComponent,
     DashboardComponent,
     FileUploadModalComponent,
-    AlertComponentComponent
+    AlertComponentComponent,
+    FileSizePipe
   ],
   imports: [
     NgbModule.forRoot(),

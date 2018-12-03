@@ -27,6 +27,11 @@ export class SimpleTrainingServiceService {
       );
   }
 
+  existsFileNameByAthlete(athleteId: string, fileName: string): Observable<any> {
+    return this.http
+    .get<any>(`${Config.api}/trainings/${athleteId}/${fileName}`);
+  }
+
   private errorHandler(error: Error | any): Observable<any> {
     return observableThrowError(error);
   }

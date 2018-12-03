@@ -1,10 +1,12 @@
+import { FileSizePipe } from './../../shared/pipe/file-size.pipe';
+import { SimpleTrainingServiceService } from './../../shared/service/simple-training-service.service';
 import { AlertComponentComponent } from './../../shared/alert-component/alert-component.component';
 import { HttpClient, HttpEventType, HttpHeaders } from '@angular/common/http';
 import { Config } from './../../shared/config';
 import { Component } from '@angular/core';
 import { NgbModal, ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap';
 import { ShowErrorService } from 'src/app/shared/service/show-error.service';
-
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'otc-file-upload-modal',
@@ -12,20 +14,23 @@ import { ShowErrorService } from 'src/app/shared/service/show-error.service';
   styles: []
 })
 export class FileUploadModalComponent {
-  fileSize: number;
+  fSize: number;
   isValidFile: boolean;
+  fileAlreadyExists: boolean;
   message: string;
   error: Error;
   selectedFile: File;
   closeResult: string;
-  constructor(private modalService: NgbModal, private http: HttpClient, private errorService: ShowErrorService) { }
+  constructor(private modalService: NgbModal, private http: HttpClient, private errorService: ShowErrorService,
+    private trainingService: SimpleTrainingServiceService) { }
 
 
   onFileSelected(event) {
     console.log(event);
     this.selectedFile = <File>event.target.files[0];
-    this.isValidFile = this.selectedFile.name.toUpperCase().endsWith('.FIT');
-    this.fileSize = this.selectedFile.size;
+    this.fSize = this.selectedFile.size / 1024;
+    this.trainingService.existsFileNameByAthlete('49952', this.selectedFile.name).subscribe(res => this.fileAlreadyExists = res);
+    this.isValidFile = this.selectedFile.name.toUpperCase().endsWith('.FIT') && this.fileAlreadyExists;
   }
 
   onUpload() {
@@ -45,7 +50,7 @@ export class FileUploadModalComponent {
       .subscribe(
         data => {
           console.log('POST Request is successful ', data);
-         // this.errorService.showError('success', 'Training konnte hochgeladen werden');
+          // this.errorService.showError('success', 'Training konnte hochgeladen werden');
         },
         error => {
           console.log('Error', error);
@@ -57,7 +62,8 @@ export class FileUploadModalComponent {
 
   open(content) {
     this.isValidFile = false;
-    this.fileSize = null;
+    this.fileAlreadyExists = null;
+    this.fSize = null;
     this.message = null;
     this.modalService.open(content, { ariaLabelledBy: 'modal-basic-title' }).result.then((result) => {
       // this.closeResult = `Closed with: ${result}`;
