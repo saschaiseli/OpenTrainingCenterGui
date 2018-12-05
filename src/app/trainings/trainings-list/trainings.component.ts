@@ -11,6 +11,7 @@ import { SimpleTraining } from 'src/app/model/simple-training';
 export class TrainingsComponent implements OnInit {
 
   trainings$: Observable<SimpleTraining[]>;
+  selectedTraining: SimpleTraining;
   constructor(private service: SimpleTrainingServiceService) { }
 
   ngOnInit() {
@@ -24,4 +25,13 @@ export class TrainingsComponent implements OnInit {
     }
     return '' + total;
   }
+
+  onSelection(simpleTraining: SimpleTraining) {
+    if (simpleTraining === this.selectedTraining) {
+      this.selectedTraining = null;
+    } else {
+      this.selectedTraining = simpleTraining;
+    }
+  }
+
 }

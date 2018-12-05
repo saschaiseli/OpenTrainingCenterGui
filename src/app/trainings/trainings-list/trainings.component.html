@@ -13,19 +13,23 @@
       </tr>
     </thead>
     <tbody>
-        <tr class="otc-trainings-list-item" *ngFor="let b of trainings" [simpletraining]="b"></tr>
-        <tr class="disabled">
-          <td></td>
-          <td></td>
-          <td>{{ getTotalDistance(trainings) }}</td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-        </tr>
+      <tr class="otc-trainings-list-item" *ngFor="let b of trainings" [simpletraining]="b" (click)="onSelection(b)" [class.table-success]="b === selectedTraining"></tr>
+      <tr class="disabled">
+        <td></td>
+        <td></td>
+        <td>{{ getTotalDistance(trainings) }}</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
     </tbody>
   </table>
+</div>
+
+<div *ngIf="selectedTraining">
+  selectiertes training isch {{ selectedTraining }}
 </div>
 
 <ng-template #loading>
