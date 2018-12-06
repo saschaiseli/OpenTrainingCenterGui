@@ -1,12 +1,14 @@
+import { Training } from './../../model/training';
 import { Config } from './../config';
 
-import {throwError as observableThrowError,  Observable } from 'rxjs';
+import { throwError as observableThrowError, Observable } from 'rxjs';
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { SimpleTraining } from '../../model/simple-training';
 import { SimpleTrainingRaw } from '../../shared/simple-training-raw';
 import { SimpleTrainingFactory } from '../../shared/simple-training-factory';
 import { retry, map, catchError } from 'rxjs/operators';
+import { TrainingFactory } from '../training-factory';
 
 @Injectable({
   providedIn: 'root'
@@ -27,9 +29,17 @@ export class SimpleTrainingServiceService {
       );
   }
 
+  getTrainingById(trainingId: number): Observable<Training> {
+    return this.http
+      .get<Training>(`${Config.api}/trainings/all/${trainingId}`)
+      .pipe(retry(3),
+        map(rawFullTraining => TrainingFactory.fromObject(rawFullTraining)), catchError(this.errorHandler)
+      );
+  }
+
   existsFileNameByAthlete(athleteId: string, fileName: string): Observable<any> {
     return this.http
-    .get<any>(`${Config.api}/trainings/${athleteId}/${fileName}`);
+      .get<any>(`${Config.api}/trainings/${athleteId}/${fileName}`);
   }
 
   private errorHandler(error: Error | any): Observable<any> {

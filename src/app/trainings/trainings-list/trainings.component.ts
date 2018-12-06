@@ -2,6 +2,7 @@ import { SimpleTrainingServiceService } from './../../shared/service/simple-trai
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 import { SimpleTraining } from 'src/app/model/simple-training';
+import { Training } from 'src/app/model/training';
 
 @Component({
   selector: 'otc-trainings',
@@ -11,11 +12,12 @@ import { SimpleTraining } from 'src/app/model/simple-training';
 export class TrainingsComponent implements OnInit {
 
   trainings$: Observable<SimpleTraining[]>;
+  fullTraining$: Observable<Training>;
   selectedTraining: SimpleTraining;
   constructor(private service: SimpleTrainingServiceService) { }
 
   ngOnInit() {
-    this.trainings$ = this.service.getAllByAthlete('49952');
+    this.trainings$ = this.service.getAllByAthlete('1');
   }
 
   getTotalDistance(trainings: SimpleTraining[]): string {
@@ -29,8 +31,11 @@ export class TrainingsComponent implements OnInit {
   onSelection(simpleTraining: SimpleTraining) {
     if (simpleTraining === this.selectedTraining) {
       this.selectedTraining = null;
+      this.fullTraining$ = null;
     } else {
       this.selectedTraining = simpleTraining;
+      console.log('call getTrainingById');
+      this.fullTraining$ = this.service.getTrainingById(this.selectedTraining.id);
     }
   }
 

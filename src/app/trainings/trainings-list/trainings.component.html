@@ -13,7 +13,8 @@
       </tr>
     </thead>
     <tbody>
-      <tr class="otc-trainings-list-item" *ngFor="let b of trainings" [simpletraining]="b" (click)="onSelection(b)" [class.table-success]="b === selectedTraining"></tr>
+      <tr class="otc-trainings-list-item" *ngFor="let b of trainings" [simpletraining]="b" (click)="onSelection(b)"
+        [class.table-success]="b === selectedTraining"></tr>
       <tr class="disabled">
         <td></td>
         <td></td>
@@ -28,8 +29,11 @@
   </table>
 </div>
 
-<div *ngIf="selectedTraining">
-  selectiertes training isch {{ selectedTraining }}
+<div *ngIf="fullTraining$ | async as fullTraining">
+  <div>
+    Distanz {{ fullTraining.distanceInKm }} km
+    trackpoints {{ fullTraining.trackPoints }}
+    </div>
 </div>
 
 <ng-template #loading>
