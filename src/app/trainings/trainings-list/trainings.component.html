@@ -29,6 +29,12 @@
   </table>
 </div>
 
+<div *ngIf="selectedTraining">
+    <div>
+      Distanz {{ selectedTraining.distanceInKm }} km
+      </div>
+  </div>
+
 <div *ngIf="fullTraining$ | async as fullTraining">
   <div>
     Distanz {{ fullTraining.distanceInKm }} km
