@@ -30,16 +30,91 @@
 </div>
 
 <div *ngIf="selectedTraining">
-    <div>
-      Distanz {{ selectedTraining.distanceInKm }} km
+  <div>
+    <div class="container-fluid pr-0 pl-0">
+      <div class="row">
+        <div class="col-auto">
+          <div class="card">
+            <div class="card-body">
+              <h4 class="card-title">{{ selectedTraining.id | date: 'dd.MM.yyyy'}}</h4>
+              <h6 class="card-subtitle mb-2 text-muted">{{ selectedTraining.id | date: 'EEEE'}}</h6>
+              <p class="card-text">{{ selectedTraining.id | date: 'HH:mm'}}</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-auto">
+          <div class="card">
+            <div class="card-body">
+              <h4 class="card-title">{{ selectedTraining.distanceInKm }}</h4>
+              <h6 class="card-subtitle mb-2 text-muted">Distanz</h6>
+              <p class="card-text">km</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-auto">
+          <div class="card">
+            <div class="card-body">
+              <h4 class="card-title">{{ selectedTraining.timeInSeconds * 1000 | date: 'h:mm:ss' : 'UTC'}}</h4>
+              <h6 class="card-subtitle mb-2 text-muted">Zeit</h6>
+              <p class="card-text invisible">hh:mm:ss</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-auto">
+          <div class="card">
+            <div class="card-body">
+              <h4 class="card-title">{{ selectedTraining.pace }}</h4>
+              <h6 class="card-subtitle mb-2 text-muted">Pace</h6>
+              <p class="card-text">min/km</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-auto">
+          <div class="card">
+            <div class="card-body">
+              <h4 class="card-title">{{ selectedTraining.avgHeartBeat }} / {{ selectedTraining.maxHeartBeat }}</h4>
+              <h6 class="card-subtitle mb-2 text-muted">Herz</h6>
+              <p class="card-text">(avg/max)</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-auto">
+          <div class="card">
+            <div class="card-body">
+              <h4 class="card-title">{{ selectedTraining.trainingEffect }} / {{ selectedTraining.anaerobTrainingEffect
+                }}</h4>
+              <h6 class="card-subtitle mb-2 text-muted">Training Effect</h6>
+              <p class="card-text">(aerob/anaerob)</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-auto" *ngIf="fullTraining$ | async as fullTraining">
+          <div class="card">
+            <div class="card-body">
+              <h4 class="card-title">{{ fullTraining.upMeter }} / {{ fullTraining.downMeter }}</h4>
+              <h6 class="card-subtitle mb-2 text-muted">Höhenmeter</h6>
+              <p class="card-text">(Up/down [m])</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-auto" *ngIf="fullTraining$ | async as fullTraining">
+          <div class="card">
+            <div class="card-body">
+              <h4 class="card-title">{{ fullTraining.geoQuality }} </h4>
+              <h6 class="card-subtitle mb-2 text-muted">Data Qualität</h6>
+              <p class="card-text">[%]</p>
+            </div>
+          </div>
+        </div>
       </div>
+    </div>
   </div>
+</div>
 
 <div *ngIf="fullTraining$ | async as fullTraining">
   <div>
-    Distanz {{ fullTraining.distanceInKm }} km
-    trackpoints {{ fullTraining.trackPoints }}
-    </div>
+    blobloa
+  </div>
 </div>
 
 <ng-template #loading>
