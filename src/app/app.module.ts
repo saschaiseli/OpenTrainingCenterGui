@@ -1,3 +1,4 @@
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
@@ -26,6 +27,7 @@ import { FileSizePipe } from './shared/pipe/file-size.pipe';
     NgbModule.forRoot(),
     RouterModule,
     BrowserModule,
+    BrowserAnimationsModule,
     HttpClientModule,
     AppRoutingModule
   ],

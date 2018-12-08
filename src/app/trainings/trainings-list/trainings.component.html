@@ -111,9 +111,19 @@
   </div>
 </div>
 
-<div *ngIf="fullTraining$ | async as fullTraining">
-  <div>
-    blobloa
+<div *ngIf="chartdata$ | async as chartdata">
+  <div class="chart-wrapper">
+    <div class="container-fluid pr-0 pl-0">
+      <otc-heart-chart [heart]=chartdata></otc-heart-chart>
+    </div>
+  </div>
+</div>
+
+<div *ngIf="altdata$ | async as altdata">
+  <div class="chart-wrapper">
+    <div class="container-fluid pr-0 pl-0">
+      <otc-altitude-chart [altitude]=altdata></otc-altitude-chart>
+    </div>
   </div>
 </div>
 
