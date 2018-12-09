@@ -1,17 +1,13 @@
 import { Component, Input } from '@angular/core';
-import { NgxChartsModule } from '@swimlane/ngx-charts';
-import { TrainingChartService } from 'src/app/shared/service/training-chart.service';
-import { Observable } from 'rxjs';
 
 @Component({
-  selector: 'otc-altitude-chart',
-  templateUrl: './altitude-chart.component.html',
+  selector: 'otc-training-chart',
+  templateUrl: './training-chart.component.html',
   styles: []
 })
-export class AltitudeChartComponent {
+export class TrainingChartComponent {
   @Input()
-  altitude: any[];
-  constructor() { }
+  data: any[];
 
   view: any[] = [1700, 400];
   // options
@@ -20,9 +16,11 @@ export class AltitudeChartComponent {
   gradient = false;
   showLegend = true;
   showXAxisLabel = true;
-  xAxisLabel = 'Distanz';
+  @Input()
+  xAxisLabel: string;
   showYAxisLabel = true;
-  yAxisLabel = 'Höhe';
+  @Input()
+  yAxisLabel: string;
   timeline = true;
 
   colorScheme = {
@@ -32,4 +30,5 @@ export class AltitudeChartComponent {
   // line, area
   autoScale = true;
 
+  constructor() { }
 }

@@ -5,8 +5,7 @@ import { CommonModule } from '@angular/common';
 import { TrainingsRoutingModule } from './trainings-routing.module';
 import { TrainingsComponent } from './trainings-list/trainings.component';
 import { TrainingsListItemComponent } from './trainings-list-item/trainings-list-item.component';
-import { HeartChartComponent } from './heart-chart/heart-chart.component';
-import { AltitudeChartComponent } from './altitude-chart/altitude-chart.component';
+import { TrainingChartComponent } from './training-chart/training-chart.component';
 
 @NgModule({
   imports: [
@@ -14,6 +13,6 @@ import { AltitudeChartComponent } from './altitude-chart/altitude-chart.componen
     NgxChartsModule,
     TrainingsRoutingModule
   ],
-  declarations: [TrainingsComponent, TrainingsListItemComponent, HeartChartComponent, AltitudeChartComponent]
+  declarations: [TrainingsComponent, TrainingsListItemComponent, TrainingChartComponent]
 })
 export class TrainingsModule { }
