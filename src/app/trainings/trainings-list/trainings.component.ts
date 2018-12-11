@@ -36,6 +36,7 @@ export class TrainingsComponent implements OnInit {
       this.selectedTraining = null;
       this.fullTraining$ = null;
       this.chartdata$ = null;
+      this.altdata$ = null;
     } else {
       this.selectedTraining = simpleTraining;
       console.log('call getTrainingById');

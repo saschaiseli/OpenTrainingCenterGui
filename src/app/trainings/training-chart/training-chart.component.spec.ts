@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { AltitudeChartComponent } from './altitude-chart.component';
+import { TrainingChartComponent } from './training-chart.component';
 
-describe('AltitudeChartComponent', () => {
-  let component: AltitudeChartComponent;
-  let fixture: ComponentFixture<AltitudeChartComponent>;
+describe('TrainingChartComponent', () => {
+  let component: TrainingChartComponent;
+  let fixture: ComponentFixture<TrainingChartComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ AltitudeChartComponent ]
+      declarations: [ TrainingChartComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(AltitudeChartComponent);
+    fixture = TestBed.createComponent(TrainingChartComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
