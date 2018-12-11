@@ -1,11 +1,11 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'otc-training-chart',
   templateUrl: './training-chart.component.html',
   styles: []
 })
-export class TrainingChartComponent {
+export class TrainingChartComponent implements OnInit{
   @Input()
   data: any[];
 
@@ -13,7 +13,7 @@ export class TrainingChartComponent {
   // options
   showXAxis = true;
   showYAxis = true;
-  gradient = false;
+  gradient = true;
   showLegend = true;
   showXAxisLabel = true;
   @Input()
@@ -21,14 +21,23 @@ export class TrainingChartComponent {
   showYAxisLabel = true;
   @Input()
   yAxisLabel: string;
+
+  @Input()
+  chartColor: string;
   timeline = true;
 
   colorScheme = {
-    domain: ['#5AA454', '#A10A28', '#C7B42C', '#AAAAAA']
+    domain: [ '#5AA454' ]
   };
 
   // line, area
   autoScale = true;
 
   constructor() { }
+
+  ngOnInit() {
+    this.colorScheme = {
+      domain: [ this.chartColor ]
+    };
+  }
 }
