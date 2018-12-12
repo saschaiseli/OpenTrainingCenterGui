@@ -7,7 +7,7 @@
     <span class="navbar-toggler-icon"></span>
   </button>
 
-  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+  <div *ngIf="isLogin()" class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item">
         <a routerLink="home" routerLinkActive="active" class="nav-link">Home</a>
@@ -21,14 +21,23 @@
       <li class="nav-item">
         <a routerLink="statistics" routerLinkActive="active" class="nav-link">Statistik</a>
       </li>
+      <li class="nav-item">
+        <div *ngIf="isLogin()">
+          <a routerLink="athlete" routerLinkActive="active" class="nav-link"> {{currentUser.firstName}}</a>
+        </div>
+      </li>
     </ul>
-    <form class="form-inline my-2 my-lg-0">
-      <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-      <button class="btn btn-outline-success my-2 my-sm-0 mr-5" type="submit">Search</button>
-    </form>
-    <otc-file-upload-modal></otc-file-upload-modal>
+    <div *ngIf="isLogin()" class="mx-5">
+      <span class="mr-1">
+        <otc-file-upload-modal></otc-file-upload-modal>
+      </span>
+      <span class="ml-1">
+        <button type="button" class="btn btn-outline-success my-2 my-sm-0 mr-5" (click)="logout()">Logout</button>
+      </span>
+    </div>
   </div>
   <div style="position: fixed;">
+    <alert></alert>
     <otc-alert-component></otc-alert-component>
   </div>
 </nav>
