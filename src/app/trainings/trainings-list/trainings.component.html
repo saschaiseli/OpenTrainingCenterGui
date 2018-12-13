@@ -119,7 +119,7 @@
         <div *ngIf="chartdata$ | async as chartdata">
           <div class="chart-wrapper">
             <div class="container-fluid pr-0 pl-0">
-              <otc-training-chart [data]=chartdata [xAxisLabel]="'Distanz'" [yAxisLabel]="'Herzfrequenz'"></otc-training-chart>
+              <otc-training-chart [data]=chartdata [xAxisLabel]="'Distanz'" [yAxisLabel]="'Herzfrequenz'" [chartColor]="'red'"></otc-training-chart>
             </div>
           </div>
         </div>
@@ -130,7 +130,7 @@
         <div *ngIf="altdata$ | async as altdata">
           <div class="chart-wrapper">
             <div class="container-fluid pr-0 pl-0">
-              <otc-training-chart [data]=altdata [xAxisLabel]="'Distanz'" [yAxisLabel]="'Höhe'"></otc-training-chart>
+              <otc-training-chart [data]=altdata [xAxisLabel]="'Distanz'" [yAxisLabel]="'Höhe'"  [chartColor]="'blue'"></otc-training-chart>
             </div>
           </div>
         </div>
