@@ -1,6 +1,5 @@
 import { FileSizePipe } from './../../shared/pipe/file-size.pipe';
 import { SimpleTrainingServiceService } from './../../shared/service/simple-training-service.service';
-import { AlertComponentComponent } from './../../shared/alert-component/alert-component.component';
 import { HttpClient, HttpEventType, HttpHeaders } from '@angular/common/http';
 import { Config } from './../../shared/config';
 import { Component } from '@angular/core';

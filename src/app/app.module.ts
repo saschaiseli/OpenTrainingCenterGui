@@ -1,3 +1,4 @@
+import { TokenInterceptor } from './shared/interceptor/token-interceptor';
 import { ErrorInterceptor } from './shared/error-interceptor';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
@@ -11,7 +12,6 @@ import { AppRoutingModule } from './app-routing.module';
 import { RouterModule } from '@angular/router';
 import { SimpleTrainingServiceService } from './shared/service/simple-training-service.service';
 import { FileUploadModalComponent } from './upload/file-upload-modal/file-upload-modal.component';
-import { AlertComponentComponent } from './shared/alert-component/alert-component.component';
 import { ShowErrorService } from './shared/service/show-error.service';
 import { FileSizePipe } from './shared/pipe/file-size.pipe';
 import { LoginComponent } from './login/login.component';
@@ -24,7 +24,6 @@ import { ReactiveFormsModule } from '@angular/forms';
     AppComponent,
     DashboardComponent,
     FileUploadModalComponent,
-    AlertComponentComponent,
     FileSizePipe,
     LoginComponent,
     RegisterComponent,
@@ -39,7 +38,9 @@ import { ReactiveFormsModule } from '@angular/forms';
     ReactiveFormsModule,
     AppRoutingModule
   ],
-  providers: [SimpleTrainingServiceService, ShowErrorService, { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true }],
+  providers: [SimpleTrainingServiceService, ShowErrorService,
+    { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },
+    { provide: HTTP_INTERCEPTORS, useClass: TokenInterceptor, multi: true }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

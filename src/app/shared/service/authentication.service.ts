@@ -22,7 +22,7 @@ export class AuthenticationService {
   }
 
   login(username: string, password: string) {
-    return this.http.post<any>(Config.api + '/users/authenticate', {username, password})
+    return this.http.post<any>(Config.api + '/users/authenticate', { username, password })
       .pipe(map(user => {
         // login successful if there's a jwt token in the response
         if (user && user.token) {
@@ -39,5 +39,14 @@ export class AuthenticationService {
     // remove user from local storage to log user out
     localStorage.removeItem('currentUser');
     this.currentUserSubject.next(null);
+  }
+
+  getToken(): string {
+    const tmpUser = JSON.parse(localStorage.getItem('currentUser'));
+    if (tmpUser != null) {
+      return tmpUser.token;
+    } else {
+      return '';
+    }
   }
 }
