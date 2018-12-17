@@ -4,7 +4,6 @@ import { HttpClient, HttpEventType, HttpHeaders } from '@angular/common/http';
 import { Config } from './../../shared/config';
 import { Component } from '@angular/core';
 import { NgbModal, ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap';
-import { ShowErrorService } from 'src/app/shared/service/show-error.service';
 import { Observable } from 'rxjs';
 
 @Component({
@@ -20,8 +19,7 @@ export class FileUploadModalComponent {
   error: Error;
   selectedFile: File;
   closeResult: string;
-  constructor(private modalService: NgbModal, private http: HttpClient, private errorService: ShowErrorService,
-    private trainingService: SimpleTrainingServiceService) { }
+  constructor(private modalService: NgbModal, private http: HttpClient, private trainingService: SimpleTrainingServiceService) { }
 
 
   onFileSelected(event) {
@@ -54,7 +52,6 @@ export class FileUploadModalComponent {
         error => {
           console.log('Error', error);
           this.message = error;
-          this.errorService.showError('danger', 'Da ist beim speichern etwas schief gegangen');
         }
       );
   }
