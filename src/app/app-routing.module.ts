@@ -33,6 +33,11 @@ const routes: Routes = [
     loadChildren: './calculations/calculations.module#CalculationsModule',
     canActivate: [AuthGuard]
   },
+  {
+    path: 'targets',
+    loadChildren: './target/target.module#TargetModule',
+    canActivate: [AuthGuard]
+  },
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
   // otherwise redirect to home
