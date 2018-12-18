@@ -9,12 +9,13 @@
       </tr>
     </thead>
     <tbody>
-      <tr class="otc-target-item" *ngFor="let b of targets" [trainingtarget]="b"
-        [class.table-success]="b === selectedTarget"></tr>
+      <tr class="otc-target-item" *ngFor="let b of targets" [trainingtarget]="b" [class.table-success]="b === selectedTarget"></tr>
     </tbody>
   </table>
 </div>
-
+<span class="ml-1">
+  <otc-target-item-edit-modal></otc-target-item-edit-modal>
+</span>
 <ng-template #loading>
   <div class="ui active dimmer">
     <div class="ui large text loader">Daten werden geladen...</div>

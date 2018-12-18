@@ -26,7 +26,7 @@ export class FileUploadModalComponent {
     console.log(event);
     this.selectedFile = <File>event.target.files[0];
     this.fSize = this.selectedFile.size / 1024;
-    this.trainingService.existsFileNameByAthlete('1', this.selectedFile.name).subscribe(res => this.fileAlreadyExists = res);
+    this.trainingService.existsFileNameByAthlete(this.selectedFile.name).subscribe(res => this.fileAlreadyExists = res);
     this.isValidFile = this.selectedFile.name.toUpperCase().endsWith('.FIT') && !this.fileAlreadyExists;
   }
 
