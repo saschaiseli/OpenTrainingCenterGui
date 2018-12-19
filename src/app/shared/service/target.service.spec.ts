@@ -1,12 +1,12 @@
 import { TestBed } from '@angular/core/testing';
 
-import { ShowErrorService } from './show-error.service';
+import { TargetService } from './target.service';
 
-describe('ShowErrorService', () => {
+describe('TargetService', () => {
   beforeEach(() => TestBed.configureTestingModule({}));
 
   it('should be created', () => {
-    const service: ShowErrorService = TestBed.get(ShowErrorService);
+    const service: TargetService = TestBed.get(TargetService);
     expect(service).toBeTruthy();
   });
 });

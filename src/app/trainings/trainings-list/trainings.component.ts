@@ -20,7 +20,7 @@ export class TrainingsComponent implements OnInit {
   constructor(private service: SimpleTrainingServiceService, private chartService: TrainingChartService) { }
 
   ngOnInit() {
-    this.trainings$ = this.service.getAllByAthlete('1');
+    this.trainings$ = this.service.getAllByAthlete();
   }
 
   getTotalDistance(trainings: SimpleTraining[]): string {

@@ -7,7 +7,7 @@ import { SimpleTraining } from 'src/app/model/simple-training';
   styles: []
 })
 export class TrainingsListItemComponent implements OnInit {
-@Input() simpletraining: SimpleTraining;
+  @Input() simpletraining: SimpleTraining;
   constructor() { }
 
   ngOnInit() {

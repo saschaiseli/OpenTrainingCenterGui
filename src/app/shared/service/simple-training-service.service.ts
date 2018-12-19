@@ -17,9 +17,9 @@ export class SimpleTrainingServiceService {
 
   constructor(private http: HttpClient) { }
 
-  getAllByAthlete(athleteId: string): Observable<Array<SimpleTraining>> {
+  getAllByAthlete(): Observable<Array<SimpleTraining>> {
     return this.http
-      .get<SimpleTrainingRaw[]>(`${Config.api}/trainings/${athleteId}`)
+      .get<SimpleTrainingRaw[]>(`${Config.api}/trainings`)
       .pipe(
         retry(3),
         map(rawTrainings => rawTrainings
@@ -37,9 +37,9 @@ export class SimpleTrainingServiceService {
       );
   }
 
-  existsFileNameByAthlete(athleteId: string, fileName: string): Observable<any> {
+  existsFileNameByAthlete( fileName: string): Observable<any> {
     return this.http
-      .get<any>(`${Config.api}/trainings/${athleteId}/${fileName}`);
+      .get<any>(`${Config.api}/trainings/${fileName}`);
   }
 
   private errorHandler(error: Error | any): Observable<any> {
