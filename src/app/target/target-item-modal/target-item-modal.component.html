@@ -1,0 +1,88 @@
+<ng-template #content let-modal>
+    <form [formGroup]="targetForm" (ngSubmit)="onSubmit()">
+  <div class="modal-header modal-lg">
+    <h4 class="modal-title" id="modal-basic-title">Ziel definieren</h4>
+    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <div class="container">
+
+
+        <div class="form-group">
+          <div class="row mb-3">
+            <div class="col-sm">Start</div>
+            <div class="col-sm">
+              <div class="input-group">
+                <input formControlName="start" class="form-control" placeholder="yyyy-mm-dd" name="dp" ngbDatepicker #d="ngbDatepicker"
+                  [ngClass]="{ 'is-invalid': f.start.errors }">
+                <div class="input-group-append">
+                  <button class="btn btn btn-outline-success calendar far fa-calendar-alt" (click)="d.toggle()" type="button"></button>
+                </div>
+                <div *ngIf="f.start.errors" class="invalid-feedback">
+                  <div *ngIf="f.start.errors.required">Startdatum ist obligatorisch</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="form-group">
+            <div class="row mb-3">
+              <div class="col-sm">Einheit</div>
+              <div class="col-sm">
+                <div class="input-group">
+                  <div class="d-inline-block" ngbDropdown #kindDrop="ngbDropdown">
+                    <button class="btn btn-outline-success mr-2" id="dropdownKind" ngbDropdownAnchor (focus)="kindDrop.open()">{{selectedKind}}</button>
+                    <div ngbDropdownMenu class="dropdown-menu" aria-labelledby="sortMenu">
+                      <button class="dropdown-item" *ngFor="let kind of kinds" (click)="setSelectionKind(kind)">{{kind}}</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+
+
+        <div class="form-group">
+          <div class="row mb-3">
+            <div class="col-sm">Dauer</div>
+            <div class="col-sm">
+              <div class="input-group">
+                <div class="d-inline-block" ngbDropdown #dauerDrop="ngbDropdown">
+                  <button class="btn btn-outline-success mr-2" id="dropdownDauer" ngbDropdownAnchor (focus)="dauerDrop.open()">{{selectedUnit}}</button>
+                  <div ngbDropdownMenu class="dropdown-menu" aria-labelledby="sortMenu">
+                    <button class="dropdown-item" *ngFor="let unit of units" (click)="setSelection(unit)">{{unit}}</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- -->
+        <div class="form-group">
+          <div class="row mb-3">
+            <div class="col-sm">{{selectedKind}}</div>
+            <div class="col-sm">
+              <input type="number" formControlName="distance" class="form-control" [ngClass]="{ 'is-invalid': f.distance.errors }" />
+              <div *ngIf="f.distance.errors" class="invalid-feedback">
+                <div *ngIf="f.distance.errors.required">Distanz ist obligatorisch</div>
+                <div *ngIf="f.distance.errors.min">Grösser 0</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- -->
+
+    </div>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-outline-success my-2 my-sm-0 mr-5" (click)="onSubmit()"
+      [disabled]="targetForm.invalid">Upload</button>
+  </div>
+</form>
+</ng-template>
+
+<button class="btn btn-outline-success" (click)="open(content)">Ziel hinzufügen</button>
