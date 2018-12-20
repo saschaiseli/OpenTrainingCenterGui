@@ -1,4 +1,3 @@
-<td>{{ trainingtarget.targetBegin }}</td>
-<td>{{ trainingtarget.goalUnit }}</td>
+<td>{{ trainingtarget.targetBegin| date: 'dd.MM.yyyy'}}</td>
 <td>{{ trainingtarget.duration }}</td>
-<td>{{ trainingtarget.distanceOrHours }}</td>
+  <td>{{ trainingtarget.distanceOrHours }} {{ trainingtarget.goalUnit | goalUnit}}</td>

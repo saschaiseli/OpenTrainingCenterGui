@@ -6,8 +6,7 @@ export class TrainingTargetFactory {
   static fromObject(rawTarget: any): TrainingTarget {
     return new TrainingTarget(
       rawTarget.id,
-      typeof (rawTarget.targetBegin) === 'string' ?
-        new Date(rawTarget.targetBegin) : rawTarget.targetBegin,
+      new Date(rawTarget.targetBegin.year, rawTarget.targetBegin.monthValue - 1, rawTarget.targetBegin.dayOfMonth),
       rawTarget.goalUnit,
       rawTarget.duration,
       rawTarget.distanceOrHours

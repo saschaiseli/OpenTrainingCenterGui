@@ -18,6 +18,7 @@ import { RegisterComponent } from './register/register.component';
 import { AlertComponent } from './alert/alert.component';
 import { ReactiveFormsModule } from '@angular/forms';
 
+
 @NgModule({
   declarations: [
     AppComponent,

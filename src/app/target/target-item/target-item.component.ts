@@ -1,3 +1,4 @@
+import { GoalUnitPipe } from '../pipe/goal-unit.pipe';
 import { TrainingTarget } from 'src/app/model/training-target';
 import { Component, OnInit, Input } from '@angular/core';
 
