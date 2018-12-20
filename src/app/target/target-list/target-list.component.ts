@@ -18,7 +18,4 @@ export class TargetListComponent implements OnInit {
   ngOnInit() {
     this.targets$ = this.service.getAll();
   }
-  addTarget() {
-
-  }
 }

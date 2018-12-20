@@ -1,9 +1,10 @@
-import { TargetUnit } from './target-unit.enum';
+import { TrainingTargetKind } from './training-target-kind';
+
 export class TrainingTarget {
 
   constructor(public id: number,
     public targetBegin: Date,
-    public amount: number,
-    public unit: TargetUnit,
-    public distance: number) {}
+    public goalUnit: string,
+    public duration: string,
+    public distanceOrHours: number) {}
 }

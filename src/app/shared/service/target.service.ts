@@ -20,11 +20,15 @@ export class TargetService {
     .pipe(
       retry(3),
       map(rawTargets => rawTargets
-        .map(rawTarget => TrainingTargetFactory.fromObject(rawTargets)),
+        .map(rawTarget => TrainingTargetFactory.fromObject(rawTarget)),
       ),
       catchError(this.errorHandler)
     );
   }
+
+  addTarget(trainingTarget: TrainingTarget) {
+    return this.http.post(`${Config.api}/targets`, trainingTarget);
+}
 
   private errorHandler(error: Error | any): Observable<any> {
     return observableThrowError(error);

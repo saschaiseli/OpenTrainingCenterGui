@@ -7,6 +7,7 @@ import { TargetItemComponent } from './target-item/target-item.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { TargetItemModalComponent } from './target-item-modal/target-item-modal.component';
+import { GoalUnitPipe } from './pipe/goal-unit.pipe';
 
 
 @NgModule({
@@ -17,6 +18,6 @@ import { TargetItemModalComponent } from './target-item-modal/target-item-modal.
     NgbModule,
     TargetRoutingModule
   ],
-  declarations: [TargetListComponent, TargetItemComponent, TargetItemModalComponent]
+  declarations: [TargetListComponent, TargetItemComponent, TargetItemModalComponent, GoalUnitPipe]
 })
 export class TargetModule { }
