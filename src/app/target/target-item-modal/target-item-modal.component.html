@@ -34,9 +34,9 @@
               <div class="col-sm">
                 <div class="input-group">
                   <div class="d-inline-block" ngbDropdown #kindDrop="ngbDropdown">
-                    <button class="btn btn-outline-success mr-2" id="dropdownKind" ngbDropdownAnchor (focus)="kindDrop.open()">{{selectedKind}}</button>
+                    <button class="btn btn-outline-success mr-2" id="dropdownKind" ngbDropdownAnchor (focus)="kindDrop.open()">{{selectedKind.kind}}</button>
                     <div ngbDropdownMenu class="dropdown-menu" aria-labelledby="sortMenu">
-                      <button class="dropdown-item" *ngFor="let kind of kinds" (click)="setSelectionKind(kind)">{{kind}}</button>
+                      <button class="dropdown-item" *ngFor="let kind of kinds" (click)="setSelectionKind(kind)">{{kind.kind}}</button>
                     </div>
                   </div>
                 </div>
@@ -80,7 +80,7 @@
   </div>
   <div class="modal-footer">
     <button type="button" class="btn btn-outline-success my-2 my-sm-0 mr-5" (click)="onSubmit()"
-      [disabled]="targetForm.invalid">Upload</button>
+      [disabled]="targetForm.invalid">Speichern</button>
   </div>
 </form>
 </ng-template>
