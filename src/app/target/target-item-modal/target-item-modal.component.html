@@ -1,5 +1,5 @@
 <ng-template #content let-modal>
-    <form [formGroup]="targetForm" (ngSubmit)="onSubmit()">
+    <form [formGroup]="targetForm">
   <div class="modal-header modal-lg">
     <h4 class="modal-title" id="modal-basic-title">Ziel definieren</h4>
     <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
@@ -34,9 +34,9 @@
               <div class="col-sm">
                 <div class="input-group">
                   <div class="d-inline-block" ngbDropdown #kindDrop="ngbDropdown">
-                    <button class="btn btn-outline-success mr-2" id="dropdownKind" ngbDropdownAnchor (focus)="kindDrop.open()">{{selectedKind.kind}}</button>
+                    <button class="btn btn-outline-success mr-2" id="dropdownKind" ngbDropdownAnchor (focus)="kindDrop.open()">{{selectedKind.text}}</button>
                     <div ngbDropdownMenu class="dropdown-menu" aria-labelledby="sortMenu">
-                      <button class="dropdown-item" *ngFor="let kind of kinds" (click)="setSelectionKind(kind)">{{kind.kind}}</button>
+                      <button class="dropdown-item" *ngFor="let kind of kinds" (click)="setSelectionKind(kind)">{{kind.text}}</button>
                     </div>
                   </div>
                 </div>
@@ -52,9 +52,9 @@
             <div class="col-sm">
               <div class="input-group">
                 <div class="d-inline-block" ngbDropdown #dauerDrop="ngbDropdown">
-                  <button class="btn btn-outline-success mr-2" id="dropdownDauer" ngbDropdownAnchor (focus)="dauerDrop.open()">{{selectedUnit}}</button>
+                  <button class="btn btn-outline-success mr-2" id="dropdownDauer" ngbDropdownAnchor (focus)="dauerDrop.open()">{{selectedUnit.text}}</button>
                   <div ngbDropdownMenu class="dropdown-menu" aria-labelledby="sortMenu">
-                    <button class="dropdown-item" *ngFor="let unit of units" (click)="setSelection(unit)">{{unit}}</button>
+                    <button class="dropdown-item" *ngFor="let unit of units" (click)="setSelection(unit)">{{unit.text}}</button>
                   </div>
                 </div>
               </div>
@@ -64,7 +64,7 @@
         <!-- -->
         <div class="form-group">
           <div class="row mb-3">
-            <div class="col-sm">{{selectedKind}}</div>
+            <div class="col-sm">{{selectedKind.text}}</div>
             <div class="col-sm">
               <input type="number" formControlName="distance" class="form-control" [ngClass]="{ 'is-invalid': f.distance.errors }" />
               <div *ngIf="f.distance.errors" class="invalid-feedback">

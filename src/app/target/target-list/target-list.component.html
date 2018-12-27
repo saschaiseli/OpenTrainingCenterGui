@@ -2,9 +2,12 @@
   <table class="table table-striped table-bordered table-hover table-sm">
     <thead class="thead-light">
       <tr>
-        <th>Startdatum</th>
+        <th>Start</th>
         <th>Ende</th>
         <th>Ziel</th>
+        <th>Aktiv</th>
+        <th>Fortschritt</th>
+        <th>aktueller Wert</th>
       </tr>
     </thead>
     <tbody>
@@ -13,7 +16,7 @@
   </table>
 </div>
 <span class="ml-1">
-  <otc-target-item-modal></otc-target-item-modal>
+  <otc-target-item-modal (updateTargets)="update()" ></otc-target-item-modal>
 </span>
 <ng-template #loading>
   <div class="ui active dimmer">

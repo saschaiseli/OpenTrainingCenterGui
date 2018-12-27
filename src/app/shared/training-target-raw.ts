@@ -1,8 +1,12 @@
 import { TargetUnit } from './../model/target-unit.enum';
 export interface TrainingTargetRaw {
   id: number;
-  targetBegin: string;
-  goalUnit: string;
+  begin: Date;
+  end: Date;
+  unit: string;
   duration: string;
-  distanceOrHours: number;
+  distanceOrHour: number;
+  isActive: boolean;
+  progress: number;
+  currentValue: number;
 }

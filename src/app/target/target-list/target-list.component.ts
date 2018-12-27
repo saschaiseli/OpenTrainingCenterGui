@@ -16,6 +16,10 @@ export class TargetListComponent implements OnInit {
   constructor(private service: TargetService) { }
 
   ngOnInit() {
+   this.update();
+  }
+
+  update() {
     this.targets$ = this.service.getAll();
   }
 }

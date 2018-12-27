@@ -1,4 +1,4 @@
-export class TrainingTargetKind {
+export class TrainingTargetUnit {
 
   constructor(
     public key: string,
