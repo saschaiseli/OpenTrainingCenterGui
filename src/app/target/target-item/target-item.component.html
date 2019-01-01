@@ -2,5 +2,10 @@
 <td>{{ trainingtarget.end | date: 'dd.MM.yyyy'}}</td>
 <td>{{ trainingtarget.distanceOrHour }} {{ trainingtarget.unit | goalUnit}}</td>
 <td>{{ trainingtarget.isActive }}</td>
-<td>{{ trainingtarget.progress | number }}</td>
-<td>{{ trainingtarget.currentValue }}</td>
+<td>
+  <div class="m-1">
+    <ngb-progressbar [type]="progressType" [value]="trainingtarget.progress">{{trainingtarget.progress
+      | number}}</ngb-progressbar>
+  </div>
+</td>
+<td>{{ trainingtarget.currentValue | number }} {{ trainingtarget.unit | goalUnit}}</td>
