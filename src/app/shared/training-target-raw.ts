@@ -9,4 +9,5 @@ export interface TrainingTargetRaw {
   isActive: boolean;
   progress: number;
   currentValue: number;
+  prediction: number;
 }

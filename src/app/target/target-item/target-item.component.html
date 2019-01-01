@@ -1,6 +1,5 @@
 <td>{{ trainingtarget.begin | date: 'dd.MM.yyyy'}}</td>
 <td>{{ trainingtarget.end | date: 'dd.MM.yyyy'}}</td>
-<td>{{ trainingtarget.distanceOrHour }} {{ trainingtarget.unit | goalUnit}}</td>
 <td>{{ trainingtarget.isActive }}</td>
 <td>
   <div class="m-1">
@@ -9,3 +8,5 @@
   </div>
 </td>
 <td>{{ trainingtarget.currentValue | number }} {{ trainingtarget.unit | goalUnit}}</td>
+<td>{{ trainingtarget.prediction | number }} {{ trainingtarget.unit | goalUnit}}</td>
+<td>{{ trainingtarget.distanceOrHour }} {{ trainingtarget.unit | goalUnit}}</td>

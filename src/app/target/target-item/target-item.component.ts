@@ -25,9 +25,9 @@ export class TargetItemComponent implements OnInit {
   }
 
   getType(): string {
-    if (this.trainingtarget.progress > 90) {
+    if (this.trainingtarget.prediction > this.trainingtarget.distanceOrHour * 0.9) {
       return 'success';
-    } else if (this.trainingtarget.progress > 50) {
+    } else if (this.trainingtarget.prediction > this.trainingtarget.distanceOrHour * 0.75) {
       return 'warning';
     } else {
       return 'danger';

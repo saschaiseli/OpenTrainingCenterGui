@@ -10,7 +10,8 @@ export class TrainingTarget {
     public distanceOrHour: number,
     public isActive: boolean,
     public progress: number,
-    public currentValue: number
+    public currentValue: number,
+    public prediction: number
     ) {}
 
 }

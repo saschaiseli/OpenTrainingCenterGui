@@ -15,7 +15,8 @@ export class TrainingTargetFactory {
       rawTarget.distanceOrHour,
       rawTarget.isActive,
       rawTarget.progress,
-      rawTarget.currentValue
+      rawTarget.currentValue,
+      rawTarget.prediction
     );
   }
 
@@ -27,6 +28,7 @@ export class TrainingTargetFactory {
       selectedKind,
       selectedUnit,
       distanceOrHour,
+      null,
       null,
       null,
       null
