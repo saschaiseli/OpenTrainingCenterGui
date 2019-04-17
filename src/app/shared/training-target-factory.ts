@@ -13,7 +13,7 @@ export class TrainingTargetFactory {
       rawTarget.unit,
       rawTarget.duration,
       rawTarget.distanceOrHour,
-      rawTarget.isActive,
+      rawTarget.active,
       rawTarget.progress,
       rawTarget.currentValue,
       rawTarget.prediction

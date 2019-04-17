@@ -1,7 +1,7 @@
 import { Training } from './../../model/training';
 import { Config } from './../config';
 
-import { throwError as observableThrowError, Observable } from 'rxjs';
+import { throwError as observableThrowError, Observable, Subject } from 'rxjs';
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { SimpleTraining } from '../../model/simple-training';
@@ -9,12 +9,13 @@ import { SimpleTrainingRaw } from '../../shared/simple-training-raw';
 import { SimpleTrainingFactory } from '../../shared/simple-training-factory';
 import { retry, map, catchError } from 'rxjs/operators';
 import { TrainingFactory } from '../training-factory';
+import { updateBinding } from '@angular/core/src/render3/instructions';
 
 @Injectable({
   providedIn: 'root'
 })
 export class SimpleTrainingServiceService {
-
+  private subject = new Subject<any>();
   constructor(private http: HttpClient) { }
 
   getAllByAthlete(): Observable<Array<SimpleTraining>> {
@@ -37,12 +38,20 @@ export class SimpleTrainingServiceService {
       );
   }
 
-  existsFileNameByAthlete( fileName: string): Observable<any> {
+  existsFileNameByAthlete(fileName: string): Observable<any> {
     return this.http
       .get<any>(`${Config.api}/trainings/${fileName}`);
   }
 
   private errorHandler(error: Error | any): Observable<any> {
     return observableThrowError(error);
+  }
+
+  public success() {
+    this.subject.next({ type: 'success', text: 'guguuus' });
+  }
+
+  public update(): Observable<string> {
+    return this.subject.asObservable();
   }
 }

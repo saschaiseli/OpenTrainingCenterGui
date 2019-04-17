@@ -1,6 +1,7 @@
+import { SimpleTrainingServiceService } from './../../shared/service/simple-training-service.service';
 import { Component, OnInit } from '@angular/core';
 import { TrainingTarget } from 'src/app/model/training-target';
-import { Observable } from 'rxjs';
+import { Observable, Subscription } from 'rxjs';
 import { TargetService } from 'src/app/shared/service/target.service';
 
 @Component({
@@ -12,11 +13,16 @@ export class TargetListComponent implements OnInit {
 
   targets$: Observable<TrainingTarget[]>;
   selectedTarget: TrainingTarget;
+  private subscription: Subscription;
 
-  constructor(private service: TargetService) { }
+  constructor(private service: TargetService, private trainingService: SimpleTrainingServiceService) {  }
 
   ngOnInit() {
-   this.update();
+    this.update();
+    this.subscription = this.trainingService.update().subscribe(message => {
+      this.update();
+      console.log('doooo update');
+    });
   }
 
   update() {

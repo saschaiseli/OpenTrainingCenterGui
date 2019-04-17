@@ -1,6 +1,7 @@
 export class SimpleTraining {
 
   constructor(public id: number,
+    public start: number,
     public timeInSeconds: number,
     public distanceInKm: number,
     public avgHeartBeat: number,

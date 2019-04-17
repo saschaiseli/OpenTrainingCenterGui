@@ -6,7 +6,7 @@ export interface TrainingTargetRaw {
   unit: string;
   duration: string;
   distanceOrHour: number;
-  isActive: boolean;
+  active: boolean;
   progress: number;
   currentValue: number;
   prediction: number;

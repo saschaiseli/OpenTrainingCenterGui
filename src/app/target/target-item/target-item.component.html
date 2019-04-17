@@ -1,6 +1,6 @@
 <td>{{ trainingtarget.begin | date: 'dd.MM.yyyy'}}</td>
 <td>{{ trainingtarget.end | date: 'dd.MM.yyyy'}}</td>
-<td>{{ trainingtarget.isActive }}</td>
+<td> <div *ngIf="trainingtarget.active"><i class="fas fa-check"></i></div></td>
 <td>
   <div class="m-1">
     <ngb-progressbar [type]="progressType" [value]="trainingtarget.progress">{{trainingtarget.progress

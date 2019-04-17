@@ -5,6 +5,7 @@ export class SimpleTrainingFactory {
   static fromObject(rawTraining: any): SimpleTraining {
     return new SimpleTraining(
       rawTraining.id,
+      rawTraining.start,
       rawTraining.timeInSeconds,
       rawTraining.distanceInKm,
       rawTraining.avgHeartBeat,

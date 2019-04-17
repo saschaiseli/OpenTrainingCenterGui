@@ -2,7 +2,7 @@ import { FileSizePipe } from './../../shared/pipe/file-size.pipe';
 import { SimpleTrainingServiceService } from './../../shared/service/simple-training-service.service';
 import { HttpClient, HttpEventType, HttpHeaders } from '@angular/common/http';
 import { Config } from './../../shared/config';
-import { Component } from '@angular/core';
+import { Component, Output, EventEmitter } from '@angular/core';
 import { NgbModal, ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap';
 import { Observable } from 'rxjs';
 
@@ -12,6 +12,7 @@ import { Observable } from 'rxjs';
   styles: []
 })
 export class FileUploadModalComponent {
+  @Output() newFile = new EventEmitter<any>();
   fSize: number;
   isValidFile: boolean;
   fileAlreadyExists: boolean;
@@ -47,6 +48,8 @@ export class FileUploadModalComponent {
       .subscribe(
         data => {
           console.log('POST Request is successful ', data);
+          this.newFile.emit();
+          this.trainingService.success();
           // this.errorService.showError('success', 'Training konnte hochgeladen werden');
         },
         error => {
