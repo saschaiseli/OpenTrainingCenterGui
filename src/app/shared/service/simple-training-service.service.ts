@@ -9,7 +9,7 @@ import { SimpleTrainingRaw } from '../../shared/simple-training-raw';
 import { SimpleTrainingFactory } from '../../shared/simple-training-factory';
 import { retry, map, catchError } from 'rxjs/operators';
 import { TrainingFactory } from '../training-factory';
-import { updateBinding } from '@angular/core/src/render3/instructions';
+
 
 @Injectable({
   providedIn: 'root'
