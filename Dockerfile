@@ -1,4 +1,6 @@
 FROM node:8.11.2-alpine as node
+ARG env_name
+ENV ENV_RUN_PARAM=$env_name
 
 WORKDIR /usr/src/app
 
@@ -10,7 +12,7 @@ RUN npm install
 
 COPY . .
 
-RUN npm run build
+RUN npm run build:$ENV_RUN_PARAM
 
 
 # Stage 2
