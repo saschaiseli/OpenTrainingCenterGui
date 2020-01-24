@@ -1,4 +1,15 @@
+
 <div *ngIf="trainings$ | async as trainings; else loading">
+  <div>
+    {{start | date: 'dd.MM.yyyy'}} bis {{end | date: 'dd.MM.yyyy'}}
+    <button mat-button (click)="back()"><--</button>
+    <button mat-button (click)="now()" [disabled]="trainingIndex==0">now</button>
+    <button mat-button (click)="foreward()" [disabled]="trainingIndex==0">--></button>
+    <mat-radio-group aria-label="Select an option" [(ngModel)]="weekly" (ngModelChange)="now()">
+      <mat-radio-button name="weekly" value="true" > Woche </mat-radio-button>
+      <mat-radio-button name="weekly" value="false" > Monat</mat-radio-button>
+    </mat-radio-group>
+  </div>
   <table class="table table-striped table-bordered table-hover table-sm">
     <thead class="thead-light">
       <tr>

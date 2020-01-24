@@ -11,7 +11,7 @@ pipeline {
          }
       }
     }
-    stage('Push Image to Dockerhub') {
+    stage('Production') {
       when{
          branch 'master'
       }

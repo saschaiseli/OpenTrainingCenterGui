@@ -1,4 +1,4 @@
-FROM node:8.11.2-alpine as node
+FROM node:12.14.0-alpine as node
 ARG env_name
 ENV ENV_RUN_PARAM=$env_name
 

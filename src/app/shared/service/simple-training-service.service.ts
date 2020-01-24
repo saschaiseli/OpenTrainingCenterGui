@@ -30,6 +30,19 @@ export class SimpleTrainingServiceService {
       );
   }
 
+  getAllByAthleteInRange(startIso: String, endIso: String): Observable<Array<SimpleTraining>> {
+    return this.http
+      .get<SimpleTrainingRaw[]>(`${Config.api}/trainings`,{params:{
+        start: startIso.toString(),end: endIso.toString()
+        }})
+      .pipe(
+        retry(3),
+        map(rawTrainings => rawTrainings
+          .map(rawTraining => SimpleTrainingFactory.fromObject(rawTraining)),
+        ),
+        catchError(this.errorHandler)
+      );
+  }
   getTrainingById(trainingId: number): Observable<Training> {
     return this.http
       .get<Training>(`${Config.api}/trainings/all/${trainingId}`)

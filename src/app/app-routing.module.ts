@@ -20,22 +20,22 @@ const routes: Routes = [
   },
   {
     path: 'trainings',
-    loadChildren: './trainings/trainings.module#TrainingsModule',
+    loadChildren: () => import('./trainings/trainings.module').then(m => m.TrainingsModule),
     canActivate: [AuthGuard]
   },
   {
     path: 'statistics',
-    loadChildren: './statistics/statistics.module#StatisticsModule',
+    loadChildren: () => import('./statistics/statistics.module').then(m => m.StatisticsModule),
     canActivate: [AuthGuard]
   },
   {
     path: 'calculations',
-    loadChildren: './calculations/calculations.module#CalculationsModule',
+    loadChildren: () => import('./calculations/calculations.module').then(m => m.CalculationsModule),
     canActivate: [AuthGuard]
   },
   {
     path: 'targets',
-    loadChildren: './target/target.module#TargetModule',
+    loadChildren: () => import('./target/target.module').then(m => m.TargetModule),
     canActivate: [AuthGuard]
   },
   { path: 'login', component: LoginComponent },
