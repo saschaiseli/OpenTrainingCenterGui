@@ -7,6 +7,7 @@ export class SimpleTrainingFactory {
       rawTraining.id,
       rawTraining.start,
       rawTraining.timeInSeconds,
+      rawTraining.formatedDuration,
       rawTraining.distanceInKm,
       rawTraining.avgHeartBeat,
       rawTraining.maxHeartBeat,

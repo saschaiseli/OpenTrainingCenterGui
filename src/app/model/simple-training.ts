@@ -3,6 +3,7 @@ export class SimpleTraining {
   constructor(public id: number,
     public start: number,
     public timeInSeconds: number,
+    public formatedDuration: string,
     public distanceInKm: number,
     public avgHeartBeat: number,
     public maxHeartBeat: number,
